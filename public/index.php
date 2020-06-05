@@ -1,69 +1,44 @@
-<!DOCTYPE html>
-<html lang="fr-FR">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="style.css"/>
-        <title>Memory O'Clock</title>
-    </head>
-    <body>
-        <!-- ----------------------- -->
-        <!--        Navbar           -->
-        <!-- ----------------------- -->
-        <nav class="navbar" role="navigation">
-            <div class="container">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a href="index.php">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="memory.php">Memory</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+<?php declare(strict_types=1);
 
-        <!-- ----------------------- -->
-        <!--        Content          -->
-        <!-- ----------------------- -->
-        <section>
-            <div class="container">
-                <div class="row">
-                    <div class="col-4">
-                        <!-- ----------------------- -->
-                        <!--      Score Card         -->
-                        <!-- ----------------------- -->
-                        <div class="card">
-                            <div class="card-header">
-                                <h3>Tableaux des scores</h3>
-                            </div>
-                            <div class="card-content">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Nom</th>
-                                            <th scope="col" class="text-right">Temps</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Jane Doe</td>
-                                            <td class="text-right">25 secs</td>
-                                        </tr>
-                                        <tr>
-                                            <td>John Doe</td>
-                                            <td class="text-right">65 secs</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <div class="mt-sm text-center">
-                                    <a href="#" class="btn btn-primary">Jouer !</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
-</html>
+use App\Controller\HomeController;
+use App\Controller\MemoryController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$httpMethod = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
+// @todo: improve with a router
+switch ($uri) {
+    case '/':
+        $controller = HomeController::class;
+        $action = 'home';
+        break;
+    case '/memory':
+        if ($httpMethod === 'GET') {
+            $controller = MemoryController::class;
+            $action = 'play';
+        } else if ($httpMethod === 'POST') {
+            $controller = MemoryController::class;
+            $action = 'save';
+        }
+        break;
+    default:
+        $controller = '';
+        $action = '';
+        break;
+}
+
+if ($controller === '' || $action === '') {
+    $response = new Response(null, 404);
+    $response->send();
+    die;
+}
+
+$request = Request::createFromGlobals();
+$controller = new $controller;
+/** @var Response $response */
+$response = $controller->$action();
+$response->send();

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <link type="text/css" rel="stylesheet" href="style.css"/>
+        <link type="text/css" rel="stylesheet" href="css/style.css"/>
         <title>Memory O'Clock</title>
     </head>
     <body>
@@ -14,10 +14,10 @@
             <div class="container">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="index.php">Accueil</a>
+                        <a href="/">Accueil</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="memory.php">Memory</a>
+                        <a href="/memory">Memory</a>
                     </li>
                 </ul>
             </div>
