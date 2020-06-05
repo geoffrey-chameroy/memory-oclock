@@ -1,0 +1,71 @@
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-light.woff2) format("woff2"), url(./fonts/oclock-light.woff) format("woff"), url(./fonts/oclock-light.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 200;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-regular.woff2) format("woff2"), url(./fonts/oclock-regular.woff) format("woff"), url(./fonts/oclock-regular.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-medium.woff2) format("woff2"), url(./fonts/oclock-medium.woff) format("woff"), url(./fonts/oclock-medium.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 600;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-bold.woff2) format("woff2"), url(./fonts/oclock-bold.woff) format("woff"), url(./fonts/oclock-bold.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-black.woff2) format("woff2"), url(./fonts/oclock-black.woff) format("woff"), url(./fonts/oclock-black.ttf) format("truetype");
+    font-style: normal;
+    font-weight: 900;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-lightitalic.woff2) format("woff2"), url(./fonts/oclock-lightitalic.woff) format("woff"), url(./fonts/oclock-lightitalic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 200;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-regularitalic.woff2) format("woff2"), url(./fonts/oclock-regularitalic.woff) format("woff"), url(./fonts/oclock-regularitalic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-mediumitalic.woff2) format("woff2"), url(./fonts/oclock-mediumitalic.woff) format("woff"), url(./fonts/oclock-mediumitalic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 600;
+}
+
+@font-face {
+    font-display: block;
+    font-family: Oclock;
+    src: url(./fonts/oclock-bolditalic.woff2) format("woff2"), url(./fonts/oclock-bolditalic.woff) format("woff"), url(./fonts/oclock-bolditalic.ttf) format("truetype");
+    font-style: italic;
+    font-weight: 700;
+}
