@@ -7,17 +7,24 @@
 ## How to install
 
 Copy docker-compose override file and update it if necessary
-
-`cp docker-compose.override.yml.dist docker-compose.override.yml`
+```
+cp docker-compose.override.yml.dist docker-compose.override.yml
+```
 
 Start docker containers
+```
+docker-compose up -d
+```
 
-`docker-compose up -d`
+Execute migrations and fixtures
+```
+docker-compose exec db bash
+mysql -u admin -padmin oclock < /srv/migrations.sql
+mysql -u admin -padmin oclock < /srv/fixtures.sql
+```
 
-Go to application
+## Usefull links
 
-http://localhost
+Application: http://localhost
 
-Go to PHP My Admin
-
-http://localhost:8080
+PHP MyAdmin: http://localhost:8080
