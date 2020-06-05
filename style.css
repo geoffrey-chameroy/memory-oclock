@@ -1,0 +1,103 @@
+/* Reset css to prevent default values */
+@import url("reset.css");
+
+/* Import O'Clock font */
+@import url("fonts.css");
+
+/* Import css helpers */
+@import url("helpers.css");
+
+body {
+    padding-top: 58px;
+    font-family: Oclock, sans-serif;
+    color: #676a6c;
+}
+
+section {
+    padding: 2rem 0.5rem;
+}
+
+h3 {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+/* ------------------- */
+/*       Navbar        */
+/* ------------------- */
+.navbar {
+    background: #3bb3dE;
+    top: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.navbar-nav {
+    height: 58px;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navbar-nav li {
+    margin: 0 0.5rem;
+}
+
+.navbar-nav .nav-item a {
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    height: 58px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-nav .nav-item.active a {
+    border-color: #fff;
+}
+
+/* ------------------- */
+/*        Card         */
+/* ------------------- */
+.card {
+    margin-bottom: 25px;
+}
+
+.card > .card-header {
+    padding: 1rem 0.5rem;
+    background-color: #3bb3de;
+    color: #fff;
+}
+
+.card > .card-content {
+    padding: 1rem 0.5rem;
+    border: 1px solid #e7eaec;
+}
+
+/* ------------------- */
+/*     Memory Card     */
+/* ------------------- */
+.memory-game .memory-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.memory-game .memory-card {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background: #e7eaec;
+    margin: 0.5rem;
+    cursor: pointer;
+}
