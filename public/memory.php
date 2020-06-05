@@ -14,10 +14,10 @@
             <div class="container">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="index.html">Accueil</a>
+                        <a href="index.php">Accueil</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="memory.html">Memory</a>
+                        <a href="memory.php">Memory</a>
                     </li>
                 </ul>
             </div>
