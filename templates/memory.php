@@ -68,15 +68,20 @@
             let foundedCards = 0;
             let startAt = null;
             let timerId = null;
+            let isActiveGame = false;
 
             $(document).ready(function() {
                 nbCards = $('.memory-board .memory-card').length;
                 startAt = new Date();
+                isActiveGame = true;
                 runTimer();
             });
 
             function runTimer() {
                 // init timer, run a function every 1 sec
+                // setInterval call the function after 1 sec
+                // we want to init timer at the beginning, so we call timer() once before
+                timer();
                 timerId = setInterval(timer, 1000);
             }
 
@@ -84,7 +89,8 @@
                 // calculate time elapse and progress bar width
                 const now = new Date();
                 const timeElapse = Math.round((now - startAt) / 1000);
-                const progressWidth = Math.ceil(timeElapse * 100 / maxDuration);
+                // we add a unit of time for the calculation, we want to begin the progress bar since the first second
+                const progressWidth = Math.ceil((timeElapse + 1) * 100 / maxDuration);
 
                 // update display
                 $('.memory-game .progress-bar-inner').css('width', `${progressWidth}%`);
@@ -92,12 +98,23 @@
 
                 // stop timer if max duration is reached
                 if (timeElapse >= maxDuration) {
+                    isActiveGame = false;
                     clearInterval(timerId);
+                    Swal.fire({
+                        title: 'Temps écoulé',
+                        text: 'Tu feras mieux la prochaine fois !',
+                        showConfirmButton: false,
+                    });
                 }
             }
 
             // display a card on click
             $('.memory-board .memory-card').click(function() {
+                // do nothing if the game is not started (or lost)
+                if (isActiveGame !== true) {
+                    return;
+                }
+
                 // do nothing when the card is already displayed
                 if ($(this).hasClass('display-card')) {
                     return;
@@ -121,6 +138,11 @@
                     $lastElement = null;
                     foundedCards += 2;
                     if (foundedCards === nbCards) {
+                        // Stop the game
+                        isActiveGame = false;
+                        clearInterval(timerId);
+
+                        // Calculate time elapse
                         const endAt = new Date();
                         const timeElapse = Math.round((endAt - startAt) / 1000);
 
@@ -129,7 +151,7 @@
                             title: `Bravo ! Tu as terminé en ${timeElapse} secondes.`,
                             input: 'text',
                             showCancelButton: false,
-                            confirmButtonText: 'Envoyer mon score',
+                            confirmButtonText: 'Envoyer mon score !',
                             showLoaderOnConfirm: true,
                             preConfirm: (name) => {
                                 // send post request after name selection
@@ -139,7 +161,7 @@
                                     Swal.fire({icon: 'success'});
                                 }).fail(function(data) {
                                     // error request
-                                    Swal.fire({icon: 'error', text: data.statusText});
+                                    Swal.fire({icon: 'error', text: data.responseJSON.error});
                                 });
                             },
                             allowOutsideClick: () => !Swal.isLoading()
@@ -153,7 +175,7 @@
                 const $current = $(this);
                 // remove immediately the selection to prevent clicks on other cards
                 $lastElement = null;
-                // wait a little to remove displayed cards
+                // wait a little before hide displayed cards
                 setTimeout(function(){
                     $last.removeClass('display-card');
                     $current.removeClass('display-card');
