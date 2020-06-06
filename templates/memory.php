@@ -49,9 +49,19 @@
             </div>
         </section>
 
+        <!-- load scripts at the end to improve loading performance -->
+        <!-- with this, the page is displayed as soon as possible and the scripts are loaded after -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
         <script>
             let $lastElement = null;
+            let nbCards = null;
+            let foundedCards = 0;
+            let startAt = null;
+
+            $(document).ready(function() {
+                nbCards = $('.memory-board .memory-card').length;
+                startAt = new Date();
+            });
 
             // display a card on click
             $('.memory-board .memory-card').click(function() {
@@ -76,6 +86,12 @@
                 // if card data equal the last one, success !
                 if ($lastElement.data('card') === $(this).data('card')) {
                     $lastElement = null;
+                    foundedCards += 2;
+                    if (foundedCards === nbCards) {
+                        const endAt = new Date();
+                        const timeElapse = Math.round((endAt - startAt) / 1000);
+                        alert(`Bravo ! Tu as terminé en ${timeElapse} secondes.`);
+                    }
                     return;
                 }
 
