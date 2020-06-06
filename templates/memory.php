@@ -50,8 +50,10 @@
         </section>
 
         <!-- load scripts at the end to improve loading performance -->
-        <!-- with this, the page is displayed as soon as possible and the scripts are loaded after -->
+        <!-- the page is displayed as soon as possible and the scripts are loaded after -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
         <script>
             let $lastElement = null;
             let nbCards = null;
@@ -90,7 +92,27 @@
                     if (foundedCards === nbCards) {
                         const endAt = new Date();
                         const timeElapse = Math.round((endAt - startAt) / 1000);
-                        alert(`Bravo ! Tu as terminé en ${timeElapse} secondes.`);
+
+                        // Open sweat alert to ask the name of the participant
+                        Swal.fire({
+                            title: `Bravo ! Tu as terminé en ${timeElapse} secondes.`,
+                            input: 'text',
+                            showCancelButton: false,
+                            confirmButtonText: 'Envoyer mon score',
+                            showLoaderOnConfirm: true,
+                            preConfirm: (name) => {
+                                // send post request after name selection
+                                const data = {'name': name, 'time': timeElapse};
+                                $.post('/memory', data, function() {
+                                    // success request
+                                    Swal.fire({icon: 'success'});
+                                }).fail(function(data) {
+                                    // error request
+                                    Swal.fire({icon: 'error', text: data.statusText});
+                                });
+                            },
+                            allowOutsideClick: () => !Swal.isLoading()
+                        });
                     }
                     return;
                 }

@@ -27,15 +27,11 @@ class CardService
 
     private function selectDeck(int $nbElement): array
     {
-        $deck = [];
-        // create array with all cards
-        for ($i = 0; $i < self::NB_MAX_ELEMENTS; ++$i) {
-            $deck[] = $i;
-        }
-        // shuffle cards
+        // create array with available cards and shuffle
+        $deck = range(0, self::NB_MAX_ELEMENTS - 1, 1);
         shuffle($deck);
 
-        // return the first cards
+        // return the $nbElement first cards
         return array_slice($deck, 0, $nbElement);
     }
 }
