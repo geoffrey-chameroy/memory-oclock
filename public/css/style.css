@@ -32,6 +32,7 @@ h3 {
     top: 0;
     position: fixed;
     width: 100%;
+    z-index: 10;
 }
 
 .navbar-nav {
@@ -88,16 +89,23 @@ h3 {
 /* ------------------- */
 /*     Memory Card     */
 /* ------------------- */
-.memory-game .memory-row {
+.memory-board {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
+    margin: 0 auto;
+    max-width: 830px;
 }
-.memory-game .memory-card {
+.memory-board .memory-card {
     display: flex;
     width: 100px;
     height: 100px;
     background: #e7eaec;
     margin: 0.5rem;
     cursor: pointer;
+}
+
+.memory-board .memory-card.display-card {
+    background: url("/images/cards.png") no-repeat 0 0;
 }
