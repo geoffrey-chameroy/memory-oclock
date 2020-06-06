@@ -38,34 +38,9 @@
                             </div>
                             <div class="card-content">
                                 <div class="memory-board">
-                                    <figure data-card="0" class="memory-card"></figure>
-                                    <figure data-card="0" class="memory-card"></figure>
-                                    <figure data-card="1" class="memory-card"></figure>
-                                    <figure data-card="1" class="memory-card"></figure>
-                                    <figure data-card="2" class="memory-card"></figure>
-                                    <figure data-card="2" class="memory-card"></figure>
-                                    <figure data-card="3" class="memory-card"></figure>
-                                    <figure data-card="3" class="memory-card"></figure>
-                                    <figure data-card="4" class="memory-card"></figure>
-                                    <figure data-card="4" class="memory-card"></figure>
-                                    <figure data-card="5" class="memory-card"></figure>
-                                    <figure data-card="5" class="memory-card"></figure>
-                                    <figure data-card="6" class="memory-card"></figure>
-                                    <figure data-card="6" class="memory-card"></figure>
-                                    <figure data-card="7" class="memory-card"></figure>
-                                    <figure data-card="7" class="memory-card"></figure>
-                                    <figure data-card="8" class="memory-card"></figure>
-                                    <figure data-card="8" class="memory-card"></figure>
-                                    <figure data-card="9" class="memory-card"></figure>
-                                    <figure data-card="9" class="memory-card"></figure>
-                                    <figure data-card="10" class="memory-card"></figure>
-                                    <figure data-card="10" class="memory-card"></figure>
-                                    <figure data-card="11" class="memory-card"></figure>
-                                    <figure data-card="11" class="memory-card"></figure>
-                                    <figure data-card="12" class="memory-card"></figure>
-                                    <figure data-card="12" class="memory-card"></figure>
-                                    <figure data-card="13" class="memory-card"></figure>
-                                    <figure data-card="13" class="memory-card"></figure>
+                                    <?php foreach ($cards as $key => $value) { ?>
+                                    <figure data-card="<?php echo $value; ?>" class="memory-card"></figure>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>

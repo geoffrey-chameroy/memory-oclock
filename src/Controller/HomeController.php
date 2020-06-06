@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Response;
 class HomeController
 {
     private const LIMIT_HALL_OF_FAME = 5;
+
+    /** @var MemoryManager */
     private $memoryManager;
 
     public function __construct()
