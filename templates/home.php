@@ -46,14 +46,12 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($memories as $memory) { ?>
                                         <tr>
-                                            <td>Jane Doe</td>
-                                            <td class="text-right">25 secs</td>
+                                            <td><?php echo $memory->name; ?></td>
+                                            <td class="text-right"><?php echo $memory->time; ?> secs</td>
                                         </tr>
-                                        <tr>
-                                            <td>John Doe</td>
-                                            <td class="text-right">65 secs</td>
-                                        </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                                 <div class="mt-sm text-center">
