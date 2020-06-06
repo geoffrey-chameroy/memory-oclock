@@ -9,9 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 class MemoryController
 {
     const NB_ELEMENT = 14;
-
-    /** @var CardService */
-    private $cardService;
+    private CardService $cardService;
 
     public function __construct()
     {
