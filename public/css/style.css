@@ -87,9 +87,30 @@ h3 {
 }
 
 /* ------------------- */
-/*     Memory Card     */
+/*     Memory Game     */
 /* ------------------- */
-.memory-board {
+.memory-game .time-elapse {
+    min-width: 80px;
+}
+
+.memory-game .progress-bar {
+    height: 20px;
+}
+
+.memory-game .progress-bar > .progress-bar-inner {
+    height: 100%;
+    width: 0;
+    max-width: 100%;
+    background-color: #fff;
+    transition: width 1s;
+    transition-timing-function: linear;
+}
+
+.memory-game .progress-bar[value]::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.memory-game .memory-board {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -97,7 +118,7 @@ h3 {
     margin: 0 auto;
     max-width: 830px;
 }
-.memory-board .memory-card {
+.memory-game .memory-board .memory-card {
     display: flex;
     width: 100px;
     height: 100px;
@@ -106,6 +127,6 @@ h3 {
     cursor: pointer;
 }
 
-.memory-board .memory-card.display-card {
+.memory-game .memory-board .memory-card.display-card {
     background: url("/images/cards.png") no-repeat 0 0;
 }

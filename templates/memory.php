@@ -25,7 +25,7 @@
         <!-- ----------------------- -->
         <!--        Content          -->
         <!-- ----------------------- -->
-        <section>
+        <section class="memory-game">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -33,8 +33,14 @@
                         <!--      Memory game        -->
                         <!-- ----------------------- -->
                         <div class="card">
-                            <div class="card-header">
+                            <div class="card-header flex flex-row">
                                 <h3>Jeu de mémoire</h3>
+                                <div class="ml-md mr-md flex-fill">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-inner"></div>
+                                    </div>
+                                </div>
+                                <h3 class="time-elapse text-right"></h3>
                             </div>
                             <div class="card-content">
                                 <div class="memory-board">
@@ -55,15 +61,40 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
         <script>
+            const maxDuration = 60;
+
             let $lastElement = null;
             let nbCards = null;
             let foundedCards = 0;
             let startAt = null;
+            let timerId = null;
 
             $(document).ready(function() {
                 nbCards = $('.memory-board .memory-card').length;
                 startAt = new Date();
+                runTimer();
             });
+
+            function runTimer() {
+                // init timer, run a function every 1 sec
+                timerId = setInterval(timer, 1000);
+            }
+
+            function timer() {
+                // calculate time elapse and progress bar width
+                const now = new Date();
+                const timeElapse = Math.round((now - startAt) / 1000);
+                const progressWidth = Math.ceil(timeElapse * 100 / maxDuration);
+
+                // update display
+                $('.memory-game .progress-bar-inner').css('width', `${progressWidth}%`);
+                $('.memory-game .time-elapse').html(`${timeElapse} secs`);
+
+                // stop timer if max duration is reached
+                if (timeElapse >= maxDuration) {
+                    clearInterval(timerId);
+                }
+            }
 
             // display a card on click
             $('.memory-board .memory-card').click(function() {
