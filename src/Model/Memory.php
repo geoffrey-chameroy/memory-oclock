@@ -2,10 +2,12 @@
 
 namespace App\Model;
 
+use DateTime;
+
 class Memory
 {
-    public $id;
-    public $name;
-    public $time;
-    public $created_at;
+    public int $id;
+    public string $name;
+    public int $time;
+    public DateTime $created_at;
 }
