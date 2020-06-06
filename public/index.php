@@ -40,5 +40,5 @@ if ($controller === '' || $action === '') {
 $request = Request::createFromGlobals();
 $controller = new $controller;
 /** @var Response $response */
-$response = $controller->$action();
+$response = $controller->$action($request);
 $response->send();

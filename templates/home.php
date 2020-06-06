@@ -48,7 +48,8 @@
                                     <tbody>
                                         <?php foreach ($memories as $memory) { ?>
                                         <tr>
-                                            <td><?php echo $memory->name; ?></td>
+                                            <!-- Use htmlentities to prevent XSS attack -->
+                                            <td><?php echo htmlentities($memory->name); ?></td>
                                             <td class="text-right"><?php echo $memory->time; ?> secs</td>
                                         </tr>
                                         <?php } ?>
