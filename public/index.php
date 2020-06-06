@@ -2,10 +2,14 @@
 
 use App\Controller\HomeController;
 use App\Controller\MemoryController;
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-require dirname(__DIR__).'/vendor/autoload.php';
+require dirname(__DIR__) . '/vendor/autoload.php';
+// Load environment variable from .env file
+$dotenv = new Dotenv();
+$dotenv->load(dirname(__DIR__) . '/.env');
 
 $httpMethod = $_SERVER['REQUEST_METHOD'];
 $uri = $_SERVER['REQUEST_URI'];
