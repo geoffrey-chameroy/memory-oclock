@@ -6,14 +6,16 @@
 
 ## How to install
 
-Copy docker-compose override file and update it if necessary
+Copy Distributed files, you can update it as you wish
 ```
+cp .env.dist .env
 cp docker-compose.override.yml.dist docker-compose.override.yml
 ```
 
-Start docker containers
+Start docker containers and install dependencies
 ```
 docker-compose up -d
+docker-compose exec app composer install
 ```
 
 Execute migrations and fixtures

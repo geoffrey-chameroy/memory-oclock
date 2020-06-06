@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-ini_set('display_errors', true);
-
 use App\Manager\MemoryManager;
 use Symfony\Component\HttpFoundation\Response;
 

@@ -20,7 +20,15 @@ class Database
             return self::$connection;
         }
 
-        self::$connection = new PDO('mysql:host=db;dbname=oclock', 'admin', 'admin');
+        self::$connection = new PDO(
+            sprintf(
+                'mysql:host=%s;dbname=%s',
+                $_ENV['DATABASE_HOST'],
+                $_ENV['DATABASE_NAME']
+            ),
+            $_ENV['DATABASE_USER'],
+            $_ENV['DATABASE_PASSWORD'],
+        );
 
         return self::getConnection();
     }
