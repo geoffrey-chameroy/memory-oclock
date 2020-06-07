@@ -110,6 +110,10 @@ h3 {
     background-color: #fff;
 }
 
+.memory-game .memory-explanation {
+    padding: 3rem 0;
+}
+
 .memory-game .memory-board {
     display: flex;
     flex-direction: row;

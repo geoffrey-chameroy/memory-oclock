@@ -33,7 +33,7 @@
                         <!--      Memory game        -->
                         <!-- ----------------------- -->
                         <div class="card">
-                            <div class="card-header flex flex-row">
+                            <div class="card-header d-flex flex-row">
                                 <h3>Jeu de mémoire</h3>
                                 <div class="ml-md mr-md flex-fill">
                                     <div class="progress-bar">
@@ -43,7 +43,11 @@
                                 <h3 class="time-elapse text-right"></h3>
                             </div>
                             <div class="card-content">
-                                <div class="memory-board">
+                                <div class="memory-explanation text-center">
+                                    <p>Tu as 60 secondes pour trouver toutes les paires de fruits, amuse toi bien !</p>
+                                    <a onclick="memoryGame.startGame()" class="mt-md btn btn-primary">C'est parti !</a>
+                                </div>
+                                <div class="d-none memory-board">
                                     <?php foreach ($cards as $key => $value) { ?>
                                     <figure data-card="<?php echo $value; ?>" class="memory-card"></figure>
                                     <?php } ?>
@@ -63,7 +67,6 @@
 
         <script>
             const memoryGame = new MemoryGame(60);
-            memoryGame.startGame();
         </script>
     </body>
 </html>
