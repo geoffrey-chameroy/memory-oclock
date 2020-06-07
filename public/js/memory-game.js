@@ -11,13 +11,18 @@ class MemoryGame {
         this.timerId = null;
         this.isActiveGame = false;
 
-        const $cards = $('.memory-board .memory-card');
+        this.$board = $('.memory-board');
+        this.$explanation = $('.memory-explanation');
+        const $cards = this.$board.find('.memory-card');
+
         this.nbCards = $cards.length;
         // arrow function syntax
         $cards.click(($event) => this.selectCard($($event.target)));
     }
 
     startGame() {
+        this.$board.removeClass('d-none');
+        this.$explanation.addClass('d-none');
         this.isActiveGame = true;
         this.startAt = new Date();
         // init timer, run a function every 1 sec
