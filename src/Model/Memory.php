@@ -2,8 +2,6 @@
 
 namespace App\Model;
 
-use DateTime;
-
 class Memory
 {
     public int $id;
