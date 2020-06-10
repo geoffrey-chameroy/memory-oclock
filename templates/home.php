@@ -1,18 +1,24 @@
 <!DOCTYPE html>
+<!-- Initialisation de la langue pour être reconnu par le navigateur (SEO également) -->
 <html lang="fr-FR">
     <head>
+        <!-- Initialisation de charset utf-8 pour afficher correctement les caractères spéciaux -->
         <meta charset="utf-8">
+        <!-- Initialisation de la largeur des smartphones et tablettes pour éviter un zoom -->
         <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Import de la feuille de style -->
         <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+        <!-- Titre de l'onglet du navigateur (Utilisé également pour le SEO) -->
         <title>Memory O'Clock</title>
     </head>
     <body>
-        <!-- ----------------------- -->
-        <!--        Navbar           -->
-        <!-- ----------------------- -->
+        <!-- ------------------------------------ -->
+        <!--        Barre de navigation           -->
+        <!-- ------------------------------------ -->
         <nav class="navbar" role="navigation">
             <div class="container">
                 <ul class="navbar-nav">
+                    <!-- La classe active souligne le menu actif -->
                     <li class="nav-item active">
                         <a href="/">Accueil</a>
                     </li>
@@ -22,17 +28,16 @@
                 </ul>
             </div>
         </nav>
-
-        <!-- ----------------------- -->
-        <!--        Content          -->
-        <!-- ----------------------- -->
+        <!-- ------------------------------------ -->
+        <!--          Contenu de la page          -->
+        <!-- ------------------------------------ -->
         <section>
             <div class="container">
                 <div class="row">
                     <div class="col-4">
-                        <!-- ----------------------- -->
-                        <!--      Score Card         -->
-                        <!-- ----------------------- -->
+                        <!-- ------------------------------------ -->
+                        <!--          Tableau des scores          -->
+                        <!-- ------------------------------------ -->
                         <div class="card">
                             <div class="card-header">
                                 <h3>Tableaux des scores</h3>
@@ -46,11 +51,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <!-- Boucle sur la liste des scores enregistrés -->
                                         <?php foreach ($memories as $memory) { ?>
                                         <tr>
-                                            <!-- Use htmlentities to prevent XSS attack -->
+                                            <!-- Utilisation de htmlentities pour contrer la faille XSS -->
                                             <td><?php echo htmlentities($memory->name); ?></td>
-                                            <td class="text-right"><?php echo $memory->time; ?> secs</td>
+                                            <!-- On force l'affichage de la valeur en entier par sécurité -->
+                                            <td class="text-right"><?php echo (int) $memory->time; ?> secs</td>
                                         </tr>
                                         <?php } ?>
                                     </tbody>

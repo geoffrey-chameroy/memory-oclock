@@ -1,32 +1,33 @@
 # Memory O'Clock
 
-## Pre requires
+## Pré requis
 
-- docker-compose
+- [docker](https://docs.docker.com/compose/install/)
+- [docker-compose](https://docs.docker.com/compose/install/)
 
-## How to install
+## Comment installer
 
-Copy Distributed files, you can update it as you wish
+Copier les fichiers distribués
 ```
 cp .env.dist .env
 cp docker-compose.override.yml.dist docker-compose.override.yml
 ```
 
-Start docker containers and install dependencies
+Démarrer les containers docker et installer les dépendances
 ```
 docker-compose up -d
 docker-compose exec app composer install
 ```
 
-Execute migrations and fixtures
+Exécuter les migrations et fixtures
 ```
 docker-compose exec db bash
 mysql -u admin -padmin oclock < /srv/migrations.sql
 mysql -u admin -padmin oclock < /srv/fixtures.sql
 ```
 
-## Usefull links
+## Liens utiles
 
-Application: http://localhost
+Application: [http://localhost](http://localhost)
 
-PHP MyAdmin: http://localhost:8080
+PHP MyAdmin: [http://localhost:8080](http://localhost:8080)
