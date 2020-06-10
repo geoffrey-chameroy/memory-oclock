@@ -8,18 +8,26 @@ class Database
 {
     private static $connection = null;
 
-    // private constructor for singleton pattern
+    // constructeur privé pour le pattern singleton : une classe = une instance
     private function __construct()
     {
     }
 
-    // Get the existing instance or generate a new one
+    /**
+     * Récupère l'instance créée ou en retourne une nouvelle
+     *
+     * @return PDO Connection à la base de données
+     */
     public static function getConnection(): PDO
     {
+        // Si l'instance existe, on la retourne
         if (self::$connection) {
             return self::$connection;
         }
 
+        // Création d'une connexion à la base de données
+        // Les variables d'environnements peuvent être déclarées sur le serveur via la commande export
+        // ou bien déclarées dans le fichier .env à la racine du projet
         self::$connection = new PDO(
             sprintf(
                 'mysql:host=%s;dbname=%s',

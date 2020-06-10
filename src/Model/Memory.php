@@ -2,6 +2,10 @@
 
 namespace App\Model;
 
+/**
+ * Class Memory
+ * Représente le modèle en base de données de la table memory
+ */
 class Memory
 {
     public int $id;
