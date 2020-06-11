@@ -1,0 +1,138 @@
+/* Import d'un reset css pour avoir des valeurs par défaut identique sur tous les navigateurs */
+@import url("reset.css");
+
+/* Import de la police d'écriture /!\ Cette police n'est pas libre de droit /!\ */
+@import url("fonts.css");
+
+/* Import de classes d'aides pour la mise en page */
+@import url("helpers.css");
+
+body {
+    padding-top: 58px;
+    font-family: Oclock, sans-serif;
+    color: #676a6c;
+}
+
+section {
+    padding: 2rem 0.5rem;
+}
+
+h3 {
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+/* -------------------------------- */
+/*       Barre de navigation        */
+/* -------------------------------- */
+.navbar {
+    background: #3bb3dE;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+.navbar-nav {
+    height: 58px;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    list-style: none;
+}
+
+.navbar-nav li {
+    margin: 0 0.5rem;
+}
+
+.navbar-nav .nav-item a {
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 900;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    position: relative;
+    height: 58px;
+    border-bottom: 2px solid transparent;
+}
+
+.navbar-nav .nav-item.active a {
+    border-color: #fff;
+}
+
+/* -------------------------------- */
+/*         Bloc d'affichage         */
+/* -------------------------------- */
+.card {
+    margin-bottom: 25px;
+}
+
+.card > .card-header {
+    padding: 1rem 0.5rem;
+    background-color: #3bb3de;
+    color: #fff;
+}
+
+.card > .card-content {
+    padding: 1rem 0.5rem;
+    border: 1px solid #e7eaec;
+}
+
+/* -------------------------------- */
+/*          Jeu de mémoire          */
+/* -------------------------------- */
+.memory-game .time-elapse {
+    min-width: 80px;
+}
+
+.memory-game .progress-bar {
+    height: 20px;
+}
+
+.memory-game .progress-bar > .progress-bar-inner {
+    height: 100%;
+    width: 0;
+    max-width: 100%;
+    background-color: #fff;
+    transition: width 1s;
+    transition-timing-function: linear;
+}
+
+.memory-game .progress-bar[value]::-webkit-progress-value {
+    background-color: #fff;
+}
+
+.memory-game .memory-explanation {
+    padding: 3rem 0;
+}
+
+.memory-game .memory-board {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 830px;
+}
+.memory-game .memory-board .memory-card {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background: #e7eaec;
+    margin: 0.5rem;
+    cursor: pointer;
+}
+
+/* On affiche l'image lorsque la carte est retournée */
+/* Le script déplacera l'image pour afficher le bon fruit */
+.memory-game .memory-board .memory-card.display-card {
+    background: url("/images/cards.png") no-repeat 0 0;
+}
