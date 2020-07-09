@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- Initialisation de la langue pour être reconnu par le navigateur (Utilisé également pour le SEO) -->
+<html lang="fr-FR">
+    <head>
+        <!-- Initialisation de charset utf-8 pour afficher correctement les caractères spéciaux -->
+        <meta charset="utf-8">
+        <!-- Initialisation de la largeur des smartphones et tablettes pour éviter un zoom -->
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <!-- Import de la feuille de style -->
+        <link type="text/css" rel="stylesheet" href="./css/style.css"/>
+        <!-- Titre de l'onglet du navigateur (Utilisé également pour le SEO) -->
+        <title>Memory O'Clock</title>
+    </head>
+    <body>
+        <!-- ------------------------------------ -->
+        <!--        Barre de navigation           -->
+        <!-- ------------------------------------ -->
+        <nav class="navbar" role="navigation">
+            <div class="container">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="./memory.html">Memory</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!-- ------------------------------------ -->
+        <!--          Contenu de la page          -->
+        <!-- ------------------------------------ -->
+        <section class="memory-game">
+            <div class="container">
+                <!-- ------------------------------------ -->
+                <!--           Boutons d'action           -->
+                <!-- ------------------------------------ -->
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a class="btn btn-primary">Start</a>
+                    </div>
+                </div>
+
+                <div class="row mt-md">
+                    <div class="col-12">
+                        <!-- ------------------------------------ -->
+                        <!--            Jeu de mémoire            -->
+                        <!-- ------------------------------------ -->
+                        <div class="card">
+                            <!-- Titre du bloc -->
+                            <div class="card-header d-flex flex-row">
+                                <h3 id="mon-titre">Jeu de mémoire</h3>
+                                <!-- L'affichage de la barre de progression est initialisé lorsque le jeu démarre -->
+                                <div class="ml-md mr-md flex-fill">
+                                    <div class="progress-bar">
+                                        <div class="progress-bar-inner"></div>
+                                    </div>
+                                </div>
+                                <!-- L'affichage du temps restant est initialisé lorsque le jeu démarre -->
+                                <h3 class="time-elapse text-right"></h3>
+                            </div>
+                            <div class="card-content">
+                                <!-- Liste des cartes -->
+                                <div id="memory-board">
+                                    <figure class="memory-card">
+                                        <img src="./images/1.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/1.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/2.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/2.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/3.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/3.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/4.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/4.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/5.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/5.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/6.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/6.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/7.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/7.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/8.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/8.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/9.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/9.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/10.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/10.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/11.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/11.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/12.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/12.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/13.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/13.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/14.png" alt="" />
+                                    </figure>
+                                    <figure class="memory-card">
+                                        <img src="./images/14.png" alt="" />
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chargement des scripts à la fin pour optimiser le chargement de la page -->
+        <!-- Chargement du script du jeu -->
+        <script src="./js/shuffle.js"></script>
+        <script src="./js/memory-game.js"></script>
+    </body>
+</html>

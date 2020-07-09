@@ -114,7 +114,7 @@ h3 {
     padding: 3rem 0;
 }
 
-.memory-game .memory-board {
+.memory-game #memory-board {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -122,17 +122,12 @@ h3 {
     margin: 0 auto;
     max-width: 830px;
 }
-.memory-game .memory-board .memory-card {
+
+.memory-game #memory-board .memory-card {
     display: flex;
     width: 100px;
     height: 100px;
     background: #e7eaec;
     margin: 0.5rem;
     cursor: pointer;
-}
-
-/* On affiche l'image lorsque la carte est retournée */
-/* Le script déplacera l'image pour afficher le bon fruit */
-.memory-game .memory-board .memory-card.display-card {
-    background: url("/images/cards.png") no-repeat 0 0;
 }
